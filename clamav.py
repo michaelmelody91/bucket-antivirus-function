@@ -252,7 +252,7 @@ def start_clamd_daemon():
     to_download = update_defs_from_s3(
         s3_client, AV_DEFINITION_S3_BUCKET, AV_DEFINITION_S3_PREFIX
     )
-
+    print(to_download)
     for download in to_download.values():
         s3_path = download["s3_path"]
         local_path = download["local_path"]
@@ -280,7 +280,7 @@ def start_clamd_daemon():
 
     clamd_proc.wait()
 
-    clamd_log_file = open("/tmp/clamd.log")
+    clamd_log_file = open("/tmp/clamd.log", "w+")
     print(clamd_log_file.read())
 
     return clamd_proc.pid

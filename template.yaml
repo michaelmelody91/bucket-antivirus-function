@@ -61,11 +61,7 @@ Resources:
           - Sid: s3AntiVirusScan
             Effect: Allow
             Action:
-              - s3:GetObject
-              - s3:GetObjectTagging
-              - s3:GetObjectVersion
-              - s3:PutObjectTagging
-              - s3:PutObjectVersionTagging
+              - s3:*
             Resource: !Ref ScanBuckets
           - Sid: kmsDecrypt
             Effect: Allow
